@@ -1,11 +1,14 @@
+import Models
 import SwiftData
 import SwiftUI
 
-struct ContentView: View {
+public struct ContentView: View {
   @Environment(\.modelContext) private var modelContext
   @Query private var items: [Item]
+  
+  public init() {}
 
-  var body: some View {
+  public var body: some View {
     NavigationSplitView {
       List {
         ForEach(self.items) { item in

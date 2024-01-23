@@ -8,19 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3802EA6F2B5F529500FD4EB5 /* MyOwnVocaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EA6E2B5F529500FD4EB5 /* MyOwnVocaApp.swift */; };
-		3802EA712B5F529500FD4EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EA702B5F529500FD4EB5 /* ContentView.swift */; };
-		3802EA732B5F529500FD4EB5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EA722B5F529500FD4EB5 /* Item.swift */; };
 		3802EA752B5F529600FD4EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3802EA742B5F529600FD4EB5 /* Assets.xcassets */; };
 		3802EA782B5F529600FD4EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3802EA772B5F529600FD4EB5 /* Preview Assets.xcassets */; };
+		3802EA852B5F64E200FD4EB5 /* Libraries in Frameworks */ = {isa = PBXBuildFile; productRef = 3802EA842B5F64E200FD4EB5 /* Libraries */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3802EA6B2B5F529500FD4EB5 /* MyOwnVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyOwnVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3802EA6E2B5F529500FD4EB5 /* MyOwnVocaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnVocaApp.swift; sourceTree = "<group>"; };
-		3802EA702B5F529500FD4EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3802EA722B5F529500FD4EB5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3802EA742B5F529600FD4EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3802EA772B5F529600FD4EB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3802EA7E2B5F566100FD4EB5 /* Libraries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Libraries; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3802EA852B5F64E200FD4EB5 /* Libraries in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,8 +36,10 @@
 		3802EA622B5F529500FD4EB5 = {
 			isa = PBXGroup;
 			children = (
+				3802EA7E2B5F566100FD4EB5 /* Libraries */,
 				3802EA6D2B5F529500FD4EB5 /* MyOwnVoca */,
 				3802EA6C2B5F529500FD4EB5 /* Products */,
+				3802EA7F2B5F63A800FD4EB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,8 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				3802EA6E2B5F529500FD4EB5 /* MyOwnVocaApp.swift */,
-				3802EA702B5F529500FD4EB5 /* ContentView.swift */,
-				3802EA722B5F529500FD4EB5 /* Item.swift */,
 				3802EA742B5F529600FD4EB5 /* Assets.xcassets */,
 				3802EA762B5F529600FD4EB5 /* Preview Content */,
 			);
@@ -68,6 +67,13 @@
 				3802EA772B5F529600FD4EB5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3802EA7F2B5F63A800FD4EB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +92,9 @@
 			dependencies = (
 			);
 			name = MyOwnVoca;
+			packageProductDependencies = (
+				3802EA842B5F64E200FD4EB5 /* Libraries */,
+			);
 			productName = MyOwnVoca;
 			productReference = 3802EA6B2B5F529500FD4EB5 /* MyOwnVoca.app */;
 			productType = "com.apple.product-type.application";
@@ -140,8 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3802EA712B5F529500FD4EB5 /* ContentView.swift in Sources */,
-				3802EA732B5F529500FD4EB5 /* Item.swift in Sources */,
 				3802EA6F2B5F529500FD4EB5 /* MyOwnVocaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +353,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3802EA842B5F64E200FD4EB5 /* Libraries */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Libraries;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3802EA632B5F529500FD4EB5 /* Project object */;
 }
