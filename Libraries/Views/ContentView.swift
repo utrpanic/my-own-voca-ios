@@ -3,50 +3,27 @@ import SwiftData
 import SwiftUI
 
 public struct ContentView: View {
-  @Environment(\.modelContext) private var modelContext
-  @Query private var items: [Item]
-  
   public init() {}
 
   public var body: some View {
-    NavigationSplitView {
-      List {
-        ForEach(self.items) { item in
-          NavigationLink {
-            Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-          } label: {
-            Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+    TabView {
+      Group {
+        VocaView()
+          .tabItem {
+            Label(
+              "Voca",
+              systemImage: "tray.and.arrow.down"
+            )
           }
-        }
-        .onDelete(perform: self.deleteItems)
-      }
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          EditButton()
-        }
-        ToolbarItem {
-          Button(action: self.addItem) {
-            Label("Add Item", systemImage: "plus")
+        SettingsView()
+          .tabItem {
+            Label(
+              "Settings",
+              systemImage: "gearshape"
+            )
           }
-        }
       }
-    } detail: {
-      Text("Select an item")
-    }
-  }
-
-  private func addItem() {
-    withAnimation {
-      let newItem = Item(timestamp: Date())
-      self.modelContext.insert(newItem)
-    }
-  }
-
-  private func deleteItems(offsets: IndexSet) {
-    withAnimation {
-      for index in offsets {
-        self.modelContext.delete(self.items[index])
-      }
+      .toolbarBackground(.visible, for: .tabBar)
     }
   }
 }
