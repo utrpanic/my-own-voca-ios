@@ -1,21 +1,23 @@
-import Models
+import Repositories
 import SwiftData
 import SwiftUI
 
 public struct ContentView: View {
+  @Environment(\.viewFactory) private var viewFactory
+
   public init() {}
 
   public var body: some View {
     TabView {
       Group {
-        VocaView()
+        self.viewFactory.vocaView()
           .tabItem {
             Label(
               "Voca",
               systemImage: "tray.and.arrow.down"
             )
           }
-        SettingsView()
+        self.viewFactory.settingsView()
           .tabItem {
             Label(
               "Settings",

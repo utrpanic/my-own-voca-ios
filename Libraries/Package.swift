@@ -8,18 +8,18 @@ let package = Package(
   platforms: [.iOS(.v17)],
   products: [
     .library(name: "Libraries", targets: [
-      "Models", "Views",
+      "Features", "Repositories",
     ]),
   ],
   targets: [
     .target(
-      name: "Models",
-      path: "Models"
+      name: "Features",
+      dependencies: ["Repositories"],
+      path: "Features"
     ),
     .target(
-      name: "Views",
-      dependencies: ["Models"],
-      path: "Views"
+      name: "Repositories",
+      path: "Repositories"
     ),
   ]
 )

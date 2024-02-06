@@ -1,7 +1,7 @@
-import Models
+import Repositories
 import SwiftData
 import SwiftUI
-import Views
+import Features
 
 @main
 struct MyOwnVocaApp: App {
@@ -22,9 +22,25 @@ struct MyOwnVocaApp: App {
   }()
 
   var body: some Scene {
-    WindowGroup {
+    return WindowGroup {
       ContentView()
     }
     .modelContainer(self.sharedModelContainer)
+    .environment(\.viewFactory, self.viewFactory())
+  }
+  
+  private func viewFactory() -> ViewFactory {
+    
+    return ViewFactory(
+      addWordView: {
+        return AddWordView()
+      },
+      settingsView: {
+        return SettingsView()
+      },
+      vocaView: {
+        return VocaView()
+      }
+    )
   }
 }
