@@ -33,7 +33,8 @@ struct MyOwnVocaApp: App {
     return Router(
       addWordView: { AddWordView() },
       settingsView: { SettingsView() },
-      vocaView: { VocaView() }
+      vocaView: { VocaView() },
+      wordDetailView: { word in WordDetailView(word) }
     )
   }
 }

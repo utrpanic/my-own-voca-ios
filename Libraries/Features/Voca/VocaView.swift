@@ -27,7 +27,7 @@ public struct VocaView: View {
         List {
           ForEach(self.words) { word in
             NavigationLink {
-              Text("Item at \(word.text)")
+              self.router.wordDetailView(word)
             } label: {
               Text("Item at \(word.text)")
             }

@@ -14,3 +14,7 @@
 ### 2. 연습하기
 - 말해보카 스타일로 랜덤하게 문제를 준다.
 - 문장은 ChatGPT에게 요청한다. 고등학교 수준의 예문으로 달라고 하면 좋을 것 같다.
+
+### 3. Local Dictionary
+- `UIReferenceLibraryViewController` 사용.
+
