@@ -1,23 +1,23 @@
-import Repositories
+import Models
 import SwiftData
 import SwiftUI
 
 public struct ContentView: View {
-  @Environment(\.viewFactory) private var viewFactory
+  @Environment(\.router) private var router
 
   public init() {}
 
   public var body: some View {
     TabView {
       Group {
-        self.viewFactory.vocaView()
+        self.router.vocaView()
           .tabItem {
             Label(
               "Voca",
               systemImage: "tray.and.arrow.down"
             )
           }
-        self.viewFactory.settingsView()
+        self.router.settingsView()
           .tabItem {
             Label(
               "Settings",
@@ -32,5 +32,5 @@ public struct ContentView: View {
 
 #Preview {
   ContentView()
-    .modelContainer(for: Item.self, inMemory: true)
+    .modelContainer(for: [Word.self, Item.self], inMemory: true)
 }

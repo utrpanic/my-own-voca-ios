@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct ViewFactory: EnvironmentKey {
+public struct Router: EnvironmentKey {
   public var addWordView: () -> AddWordView
   public var settingsView: () -> SettingsView
   public var vocaView: () -> VocaView
@@ -15,7 +15,7 @@ public struct ViewFactory: EnvironmentKey {
     self.vocaView = vocaView
   }
 
-  public static let defaultValue = ViewFactory(
+  public static let defaultValue = Router(
     addWordView: { fatalError("Not Implemented") },
     settingsView: { fatalError("Not Implemented") },
     vocaView: { fatalError("Not Implemented") }
@@ -23,8 +23,8 @@ public struct ViewFactory: EnvironmentKey {
 }
 
 public extension EnvironmentValues {
-  var viewFactory: ViewFactory {
-    get { self[ViewFactory.self] }
-    set { self[ViewFactory.self] = newValue }
+  var router: Router {
+    get { self[Router.self] }
+    set { self[Router.self] = newValue }
   }
 }

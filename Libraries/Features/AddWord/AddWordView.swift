@@ -1,3 +1,4 @@
+import Models
 import SwiftUI
 
 public struct AddWordView: View {
@@ -7,9 +8,18 @@ public struct AddWordView: View {
   @State private var endDate = Date()
 
   @FocusState private var focused: Bool?
+
   @Environment(\.dismiss) private var dismiss
-  
+  @Environment(\.modelContext) private var modelContext
+
   public init() {}
+
+  private func onDoneTap() {
+    let word = Word(text: self.word, histories: [
+      History(from: self.source, addedAt: Date()),
+    ])
+    self.modelContext.insert(word)
+  }
 
   public var body: some View {
     return Form {
@@ -38,6 +48,7 @@ public struct AddWordView: View {
       }
       ToolbarItem(placement: .primaryAction) {
         Button("Done") {
+          self.onDoneTap()
           self.dismiss()
         }
         .disabled(self.word.isEmpty)

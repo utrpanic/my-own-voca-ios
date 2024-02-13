@@ -1,16 +1,40 @@
+import Models
+import SwiftData
 import SwiftUI
 
 public struct VocaView: View {
+  @Query public var words: [Word]
+
   @State private var showAddWord: Bool = false
 
-  @Environment(\.viewFactory) private var viewFactory;
+  @Environment(\.router) var router
+  @Environment(\.modelContext) var modelContext
 
   public init() {}
+
+  private func onDeleteWord(at indexSet: IndexSet) {
+    withAnimation {
+      for item in indexSet {
+        let word = self.words[item]
+        self.modelContext.delete(word)
+      }
+    }
+  }
 
   public var body: some View {
     NavigationStack {
       Group {
-        Text("VocaView")
+        List {
+          ForEach(self.words) { word in
+            NavigationLink {
+              Text("Item at \(word.text)")
+            } label: {
+              Text("Item at \(word.text)")
+            }
+          }
+          .onDelete(perform: self.onDeleteWord)
+        }
+        EmptyView()
       }
       .navigationBarTitleDisplayMode(.inline)
       .navigationTitle("My Own Voca")
@@ -28,7 +52,7 @@ public struct VocaView: View {
       }
       .sheet(isPresented: self.$showAddWord) {
         NavigationStack {
-          self.viewFactory.addWordView()
+          self.router.addWordView()
         }
         .presentationDetents([.medium])
       }

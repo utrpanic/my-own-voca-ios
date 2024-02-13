@@ -1,4 +1,4 @@
-import Repositories
+import Models
 import SwiftData
 import SwiftUI
 
@@ -53,5 +53,5 @@ public struct ItemList: View {
 
 #Preview {
   ItemList()
-    .modelContainer(for: Item.self, inMemory: true)
+    .modelContainer(for: [Word.self, Item.self], inMemory: true)
 }
